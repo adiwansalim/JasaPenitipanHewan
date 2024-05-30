@@ -54,8 +54,9 @@
         </div>
       </nav>
       <div class="home-content">
-        <h1>Selamat Datang di Halaman Admin</h1>
-        <p></p>
+        <h2 id="text"> </h2>
+        <h1>Selamat Datang di Halaman Admin...</h1> <br>
+        <p id="date"></p>
       </div>
     </section>
     <script>
@@ -106,14 +107,14 @@
         ).innerHTML = `${hari},${tanggal} ${bulan} ${tahun}, ${jam}:${m}:${s}`;
         requestAnimationFrame(myFunction);
       }
-      function checkTime(i) {
-        if (i < 10) {
-          i = "0" + i;
+      function checkTime(a) {
+        if (a < 10) {
+          a = "0" + a;
         }
-        return i;
+        return a;
       }
       window.onload = function () {
-        let nama = prompt("Masukkan Nama Anda : ", "Admin");
+        let nama = prompt("Masukkan Nama Anda : ", "Surya Adiwan Salim");
         let jam = new Date().getHours();
         if (nama != null) {
           if (jam >= 4 && jam <= 10) {
