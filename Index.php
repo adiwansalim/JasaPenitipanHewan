@@ -3,6 +3,7 @@
   <head>
     <link rel="icon" href="assets/icon.png" />
     <title>Home</title>
+
     <link rel="stylesheet" href="Style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,9 +29,9 @@
             <i class="fas fa-bars"></i>
           </label>
           <ul>
-            <li><a href="Index.html">Home</a></li>
-            <li><a href="Categoriii.html">Categories</a></li>
-            <li><a href="login.html" class="btn_login">Login</a></li>
+            <li><a href="Index.php">Home</a></li>
+            <li><a href="Categoriii.php">Categories</a></li>
+            <li><a href="login.php" class="btn_login">Login</a></li>
           </ul>
         </nav>
       </header>
@@ -71,6 +72,7 @@
             <div class="card">
               <img src="assets/kategori-lainnya.png" alt="" />
               <h5>Kategori Lainnya..</h5>
+
               <p>
                 Deskripsi kategori lainnya di sini.
               </p>
@@ -244,6 +246,11 @@
         alert("Pembayaran Pemesanan Penitipan Hewan Anda berhasil!");
         tutupModal2();
       }
-    </script>  
+      function lanjutkanPembayaran() {
+        alert("Pembayaran Pemesanan Penitipan Hewan Anda berhasil!");
+        tutupModal2();
+      }
+    </script>
+    
   </body>
 </html>

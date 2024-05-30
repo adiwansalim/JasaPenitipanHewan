@@ -26,9 +26,9 @@
             <i class="fas fa-bars"></i>
           </label>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Categoriii.html">Categories</a></li>
-            <li><a href="login.html" class="btn_login">Login</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Categoriii.php">Categories</a></li>
+            <li><a href="login.php" class="btn_login">Login</a></li>
           </ul>
         </nav>
       </header>
@@ -36,7 +36,7 @@
         <div class="center">
           <div class="form-login">
             <h3>Register</h3>
-            <form action="">
+            <form action="register-proses.php" method="post">
               <input class="input" type="email" name="email"placeholder="Email"
               />
               <input

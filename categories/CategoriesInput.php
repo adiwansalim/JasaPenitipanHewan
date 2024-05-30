@@ -1,9 +1,17 @@
+<?php 
+	session_start();
+	if($_SESSION['username'] == null) {
+		header('location:../login.php');
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="../assets/icon.png" />
-    <link rel="stylesheet" href="Admin.css" />
+    <link rel="stylesheet" href="../Admin.css" />
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -20,19 +28,19 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="Admin.html" class="active">
+          <a href="Admin.php" class="active">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="categories/Categories.html">
+          <a href="categories/Categories.php">
             <i class="bx bx-box"></i>
             <span class="links_name">Categories</span>
           </a>
         </li>
         <li>
-          <a href="transaction/Penitipan.html">
+          <a href="transaction/Penitipan.php">
             <i class="bx bx-list-ul"></i>
             <span class="links_name">Transaction</span>
           </a>
@@ -57,7 +65,7 @@
       <div class="home-content">
         <h3>Input Categories</h3>
         <div class="form-login">
-          <form action="">
+        <form action="categories/categories-proses.php" method="post" enctype="multipart/form-data">
             <label for="categories">Kategori Hewan</label>
             <input
               class="input"

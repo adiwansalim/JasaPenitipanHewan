@@ -22,19 +22,19 @@
       </div>
       <ul class="nav-links">
         <li>
-          <a href="Admin.html" class="active">
+          <a href="Admin.php" class="active">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="categories/Categories.html">
+          <a href="categories/Categories.php">
             <i class="bx bx-box"></i>
             <span class="links_name">Categories</span>
           </a>
         </li>
         <li>
-          <a href="transaction/Penitipan.html">
+          <a href="transaction/Penitipan.php">
             <i class="bx bx-list-ul"></i>
             <span class="links_name">Transaction</span>
           </a>

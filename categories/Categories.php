@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="../assets/logo.png" />
+    <link rel="icon" href="../assets/icon.png" />
     <link rel="stylesheet" href="../Admin.css" />
     <!-- Boxicons CDN Link -->
     <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0"
-    />
-    <title>Admin Penitipan | Transaction</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Penitipan | Categories</title>
   </head>
   <body>
     <div class="sidebar">
       <div class="logo-details">
-        <i class=" "></i>
+        <i class="bx bx-category"></i>
         <span class="logo_name">Penitipan Hewan</span>
       </div>
       <ul class="nav-links">
         <li>
-          <a href="../Admin.html" class="active">
+          <a href="../Admin.php" class="active">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="../categories/Categories.html">
+          <a href="Categories.php">
             <i class="bx bx-box"></i>
             <span class="links_name">Categories</span>
           </a>
         </li>
         <li>
-          <a href="../transaction/Penitipan.html">
+          <a href="../transaction/Penitipan.php">
             <i class="bx bx-list-ul"></i>
             <span class="links_name">Transaction</span>
           </a>
@@ -58,34 +55,42 @@
         </div>
       </nav>
       <div class="home-content">
-        <h3>Trasaction</h3>
+        <h3>Categories</h3>
         <button type="button" class="btn btn-tambah">
-          <a href="../InputPenitipan.html">Tambah Data</a>
+          <a href="../categories/CategoriesInput.php">Tambah Data</a>
         </button>
         <table class="table-data">
           <thead>
             <tr>
-              <th style="width: 20%">Nama Hewan</th>
-              <th>Tanggal Penitipan</th>
-              <th style="width: 20%">Biaya Penitipan</th>
-              <th style="width: 20%">Durasi Penitipan</th>
-              <th>Action</th>
+              <th scope="col" style="width: 30%">Foto</th>
+              <th>Kategori Hewan</th>
+              <th scope="col" style="width: 20%">Harga</th>
+              <th scope="col" style="width: 30%">Aksi</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Kuda</td>
-              <td>02/04/2024</td>
-              <td>Rp.150.000</td>
-              <td>5 hari</td>
-          <td>
-          <a href="" class="btn-edit">Edit</a>
-          <a href="" class="btn-hapus">Hapus</a>
-          </td>
+              <td><img src="../assets/Kuda.jpg" alt=""width="250" height="100" /></td>
+              <td>Hewan Besar</td>
+              <td>150000</td>
+              <td>
+            <a href="" class="btn-edit">Edit</a>
+            <a href="" class="btn-hapus">Hapus</a>
+            </td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function () {
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else sidebarBtn.classList.replace("bxmenu-alt-right", "bx-menu");
+      };
+    </script>
   </body>
 </html>
