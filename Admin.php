@@ -38,7 +38,7 @@
           </a>
         </li>
         <li>
-          <a href="transaction/Penitipan.php">
+          <a href="transaction/Transaksi_Penitipan.php">
             <i class="bx bx-list-ul"></i>
             <span class="links_name">Transaksi Penitipan</span>
           </a>
@@ -68,6 +68,37 @@
    </h2>
    <h3 id="date"></h3>
 </div>
+
+	<!-- widget -->
+	<div class="widget">
+		<br>
+		<div class="cards-categories">
+			<h2>Kategori Penitipan Hewan</h2>
+			<div class="card-categories">
+				<?php
+				include 'koneksi.php';
+				$sql = "SELECT * FROM tb_kategorihewan";
+				$result = mysqli_query($koneksi, $sql);
+				if (mysqli_num_rows($result) == 0) {
+					echo "<h3 style='text-align: center; color: red;'>Data Kosong</h3>";
+				}
+				while ($data = mysqli_fetch_assoc($result)) {
+					echo "
+					<div class='card' style='display: inline-block; margin-right: 10px;'>
+						<div class='card-image'>
+							<img src='img_categories/$data[fotohewan]' alt='tidak ada gambar' width='300' height='300'  />
+						</div>
+						<div class='card-content'>
+							<h5>$data[kategorihewan]</h5>
+							<br>
+						</div>
+					</div>
+					";
+				}
+				?>
+			</div>
+		</div>
+	</div>
 
 <script>
 			let sidebar = document.querySelector(".sidebar");
@@ -122,6 +153,7 @@
 				myFunction();
 			};
 		</script>
+
 
   </body>
 </html>

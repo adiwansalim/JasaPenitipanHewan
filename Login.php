@@ -23,7 +23,7 @@
           </label>
           <ul>
             <li><a href="Index.php">Home</a></li>
-            <li><a href="Categoriii.php">Categories</a></li>
+            <li><a href="Index.php">Categories</a></li>
             <li><a href="login.php" class="btn_login">Login</a></li>
           </ul>
         </nav>

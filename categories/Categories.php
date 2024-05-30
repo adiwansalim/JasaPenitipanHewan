@@ -38,7 +38,7 @@ if ($_SESSION['username'] == null) {
 				</a>
 			</li>
 			<li>
-				<a href="../transaction/Penitipan.php">
+				<a href="../transaction/Transaksi_Penitipan.php">
 					<i class="bx bx-list-ul"></i>
 					<span class="links_name">Transaksi Penitipan</span>
 				</a>
@@ -65,9 +65,6 @@ if ($_SESSION['username'] == null) {
 			<button type="button" class="btn btn-tambah">
 				<a href="../categories/CategoriesInput.php">Tambah Data</a>
 			</button>
-			<!-- <button type="button" class="btn btn-edit">
-				<a href="../categories/categories-edit.php">Edit</a>
-			</button> -->
 			<table class="table-data">
 				<thead>
 					<tr>

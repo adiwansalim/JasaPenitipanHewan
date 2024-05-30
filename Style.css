@@ -93,6 +93,11 @@ input[type="checkbox"] {
     margin: 10px 0;
 }
 
+.card .btn_belanja:hover {
+	background-color: #11c4c4;
+  }
+  
+
 /* style card-categories */
 .cards-categories {
     display: flex;
@@ -360,3 +365,7 @@ footer {
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+
+/* End of Style.css */
