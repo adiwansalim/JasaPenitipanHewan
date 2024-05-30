@@ -1,17 +1,18 @@
-<?php 
+<?php
 include '../koneksi.php';
 
-function upload() {
-    $namaFile = $_FILES['photo']['name'];
-    $error = $_FILES['photo']['error'];
-    $tmpName = $_FILES['photo']['tmp_name'];
+function upload()
+{
+    $namaFile = $_FILES['fotohewan']['name'];
+    $error = $_FILES['fotohewan']['error'];
+    $tmpName = $_FILES['fotohewan']['tmp_name'];
 
     // cek apakah tidak ada gambar yang diupload
-    if($error === 4) {
+    if ($error === 4) {
         echo "
             <script>
                 alert('Gambar Harus Diisi');
-                window.location = 'categories-entry.php';
+                window.location = '../categories/CategoriesInput.php';
             </script>
         ";
 
@@ -23,11 +24,11 @@ function upload() {
     $ekstensiGambar = explode('.', $namaFile);
     $ekstensiGambar = strtolower(end($ekstensiGambar));
 
-    if(!in_array($ekstensiGambar, $ekstentiGambarValid)) {
+    if (!in_array($ekstensiGambar, $ekstentiGambarValid)) {
         echo "
             <script>
                 alert('File Harus Berupa Gambar');
-                window.location = 'categories-entry.php';
+                window.location = '../categories/CategoriesInput.php';
             </script>
         ";
 
@@ -41,110 +42,110 @@ function upload() {
 
     $oke =  move_uploaded_file($tmpName, '../img_categories/' . $namaFileBaru);
     return $namaFileBaru;
-
 }
 
-if(isset($_POST['simpan'])) {
-    $categories = $_POST['categories'];
-    $price = $_POST['price'];
-    $description = $_POST['description'];
-    $photo = upload();
+if (isset($_POST['simpan'])) {
+    $kategorihewan = $_POST['kategorihewan'];
+    $harga = $_POST['harga'];
+    $deskripsihewan = $_POST['deskripsihewan'];
+    $fotohewan = upload();
 
-    if(!$photo) {
+    if (!$fotohewan) {
         return false;
     }
-    var_dump($photo, $categories, $price, $description);
+    // var_dump($fotohewan, $kategorihewan, $harga, $deskripsihewan);
 
-    $sql = "INSERT INTO tb_categories VALUES(NULL, '$photo', '$categories', '$price','$description')";
-
-    if(empty($categories) || empty($price)|| empty($description)) {
+    $sql = "INSERT INTO tb_kategorihewan VALUES(NULL, '$fotohewan', '$kategorihewan', '$harga','$deskripsihewan')";
+    // var_dump($sql);
+    // die();
+    if (empty($kategorihewan) || empty($harga) || empty($deskripsihewan)) {
         echo "
             <script>
                 alert('Pastikan Anda Mengisi Semua Data');
-                window.location = 'categories-entry.php';
+                window.location = '../categories/CategoriesInput.php';
             </script>
         ";
-    }elseif(mysqli_query($koneksi, $sql)) {
+    } elseif (mysqli_query($koneksi, $sql)) {
         echo "
             <script>
                 alert('Data Categories Berhasil Ditambahkan');
-                window.location = 'categories.php'
+                window.location = '../categories/Categories.php'
             </script>
         ";
-    }else {
+    } else {
         echo "
             <script>
                 alert('Terjadi Kesalahan');
-                window.location = 'categories-entry.php'
+                window.location = '../categories/CategoriesInput.php'
             </script>
         ";
     }
-}elseif(isset($_POST['edit'])) {
+} elseif (isset($_POST['edit'])) {
     $id         = $_POST['id'];
-    $categories = $_POST['categories'];
-    $price      = $_POST['price'];
-    $description = $_POST['description'];
-    $photoLama = $_POST['photoLama'];
+    $kategorihewan = $_POST['kategorihewan'];
+    $harga      = $_POST['harga'];
+    $deskripsihewan = $_POST['deskripsihewan'];
+    $fotoLama = $_POST['fotoLama'];
 
     // cek apakah user pilih gambar atau tidak
-    if($_FILES['photo']['error']) {
-        $photo = $photoLama;
-    }else {
+    if ($_FILES['fotohewan']['error']) {
+        $fotohewan = $fotoLama;
+    } else {
         // foto lama akan dihapus dan diganti foto baru
-        unlink('../img_categories/' . $photoLama);
-        $photo = upload();
+        unlink('../img_categories/' . $fotoLama);
+        $fotohewan = upload();
     }
 
-    $sql = "UPDATE tb_categories SET 
-            photo = '$photo',
-            categories = '$categories',
-            price = '$price',
-            description = '$description'
+    $sql = "UPDATE tb_kategorihewan SET 
+            fotohewan = '$fotohewan',
+            kategorihewan = '$kategorihewan',
+            harga = '$harga',
+            deskripsihewan = '$deskripsihewan'
             WHERE id = $id 
             ";
 
-    if(mysqli_query($koneksi, $sql)) {
+    if (mysqli_query($koneksi, $sql)) {
         echo "
             <script>
                 alert('Data Categories Berhasil Diubah');
-                window.location = 'categories.php';
+                window.location = '../categories/Categories.php';
             </script>
         ";
-    }else {
+    } else {
         echo "
             <script>
                 alert('Terjadi Kesalahan');
-                window.location = 'categories-edit.php';
+                window.location = '../categories/categories-edit.php';
             </script>
         ";
     }
-}elseif(isset($_POST['hapus'])) {
+} elseif (isset($_POST['hapus'])) {
     $id = $_POST['id'];
 
     // hapus gambar
-    $sql = "SELECT * FROM tb_categories WHERE id = $id";
+    $sql = "SELECT * FROM tb_kategorihewan WHERE id = $id";
     $result = mysqli_query($koneksi, $sql);
     $row = mysqli_fetch_assoc($result);
-    $photo = $row['photo'];
-    unlink('../img_categories/' . $photo);
-    
+    $fotohewan = $row['fotohewan'];
+    unlink('../img_categories/' . $fotohewan);
 
-    $sql = "DELETE FROM tb_categories WHERE id = $id";
-    if(mysqli_query($koneksi, $sql)) {
+
+    $sql = "DELETE FROM tb_kategorihewan WHERE id = $id";
+    if (mysqli_query($koneksi, $sql)) {
         echo "
             <script>
                 alert('Data Categories Berhasil Dihapus');
-                window.location = 'categories.php';
+                window.location = '../categories/Categories.php';
             </script>
         ";
-    }else {
+    } else {
         echo "
             <script>
                 alert('Data Categories Gagal Dihapus');
-                window.location = 'categories.php';
+                window.location = '../categories/Categories.php';
             </script>
         ";
     }
-}else {
-    header('location: categories.php');
+} else {
+    header('location:../../CategoriesInput.php');
 }

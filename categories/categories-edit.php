@@ -5,18 +5,18 @@ if (!isset($_GET['id'])) {
     echo "
       <script>
         alert('Tidak ada ID yang Terdeteksi');
-        window.location = 'categories.php';
+        window.location = '../categories/Categories.php';
       </script>
     ";
 }
 
-$sql = "SELECT * FROM tb_categories WHERE id = '$id'";
+$sql = "SELECT * FROM tb_kategorihewan WHERE id = '$id'";
 $result = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_assoc($result);
 
 session_start();
 if ($_SESSION['username'] == null) {
-    header('location:../login.php');
+    header('location:../../../Login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -25,40 +25,40 @@ if ($_SESSION['username'] == null) {
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="../assets/icon.png" />
-    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../Admin.css" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catshop Admin | Categories Entry</title>
+    <title>Admin Penitipan | Input Kategori</title>
 </head>
 
 <body>
     <div class="sidebar">
         <div class="logo-details">
             <i class="bx bx-category"></i>
-            <span class="logo_name">CatShop</span>
+            <span class="logo_name">PENITIPAN</span>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="../admin.php">
+                <a href="../Admin.php">
                     <i class="bx bx-grid-alt"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="../categories/categories.php" class="active">
+                <a href="../categories/Categories.php" class="active">
                     <i class="bx bx-box"></i>
-                    <span class="links_name">Categories</span>
+                    <span class="links_name">Kategori Hewan</span>
                 </a>
             </li>
             <li>
-                <a href="../transaction/transaction.php">
+                <a href="../transaction/Penitipan.php">
                     <i class="bx bx-list-ul"></i>
-                    <span class="links_name">Transaction</span>
+                    <span class="links_name">Transaksi Penitipan</span>
                 </a>
             </li>
             <li>
-                <a href="../logout.php">
+                <a href="../Logout.php">
                     <i class="bx bx-log-out"></i>
                     <span class="links_name">Log out</span>
                 </a>
@@ -71,24 +71,24 @@ if ($_SESSION['username'] == null) {
                 <i class="bx bx-menu sidebarBtn"></i>
             </div>
             <div class="profile-details">
-                <span class="admin_name">Catshop Admin</span>
+                <span class="admin_name">Admin Penitipan</span>
             </div>
         </nav>
         <div class="home-content">
-            <h3>Input Categories</h3>
+            <h3>Input Kategori</h3>
             <div class="form-login">
-                <form action="categories-proses.php" method="post" enctype="multipart/form-data">
+                <form action="../categories/categories-proses.php" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $data['id'] ?>">
-                    <input type="hidden" name="photoLama" value="<?= $data['photo'] ?>">
-                    <label for="categories">Categories</label>
-                    <input class="input" type="text" name="categories" id="categories" placeholder="Categories" value="<?= $data['categories'] ?>" />
-                    <label for="categories">Price</label>
-                    <input class="input" type="text" name="price" id="price" placeholder="Price" value="<?= $data['price'] ?>" />
-                    <label for="categories">Description</label>
-                    <input class="input" type="text" name="description" id="Description" placeholder="Description" value="<?= $data['description'] ?>" />
-                    <label for="photo">Photo</label>
-                    <img src="../img_categories/<?= $data['photo'] ?>" alt="" width="200px">
-                    <input type="file" name="photo" id="photo" style="margin-bottom: 20px" />
+                    <input type="hidden" name="fotoLama" value="<?= $data['fotohewan'] ?>">
+                    <label for="kategorihewan">Kategori Hewan</label>
+                    <input class="input" type="text" name="kategorihewan" id="kategorihewan" placeholder="kategori hewan" value="<?= $data['kategorihewan'] ?>" />
+                    <label for="kategorihewan">Harga</label>
+                    <input class="input" type="text" name="harga" id="harga" placeholder="harga" value="<?= $data['harga'] ?>" />
+                    <label for="kategorihewan">Deskripsi Hewan</label>
+                    <input class="input" type="text" name="deskripsihewan" id="deskripsihewan" placeholder="deskripsi hewan" value="<?= $data['deskripsihewan'] ?>" />
+                    <label for="fotohewan">Photo</label>
+                    <img src="../img_categories/<?= $data['fotohewan'] ?>" alt="" width="200px">
+                    <input type="file" name="fotohewan" id="fotohewan" style="margin-bottom: 20px" />
                     <button type="submit" class="btn btn-simpan" name="edit">
                         Edit
                     </button>

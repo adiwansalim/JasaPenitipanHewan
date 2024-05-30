@@ -10,13 +10,13 @@
     ";
   }
 
-  $sql = "SELECT * FROM tb_categories WHERE id = '$id'";
+  $sql = "SELECT * FROM tb_kategorihewan WHERE id = '$id'";
   $result = mysqli_query($koneksi, $sql);
   $data = mysqli_fetch_assoc($result);
 
 	session_start();
 	if($_SESSION['username'] == null) {
-		header('location:../login.php');
+		header('location:../../../Login.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -24,41 +24,41 @@
 <head>
    <meta charset="UTF-8" />
    <link rel="icon" href="../assets/icon.png" />
-   <link rel="stylesheet" href="../css/admin.css" />
+   <link rel="stylesheet" href="../Admin.css" />
    <!-- Boxicons CDN Link -->
    <link
 	href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
 			rel="stylesheet" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Catshop Admin | Categories Entry</title>
+   <title>Admin Penitipan | Input Kategori</title>
 </head>
 <body>
    <div class="sidebar">
 	<div class="logo-details">
 	   <i class="bx bx-category"></i>
-	   <span class="logo_name">CatShop</span>
+	   <span class="logo_name">PENITIPAN</span>
 	</div>
 	<ul class="nav-links">
 	   <li>
-		<a href="../admin.php">
+		<a href="../Admin.php">
 		   <i class="bx bx-grid-alt"></i>
 		   <span class="links_name">Dashboard</span>
 		</a>
 	   </li>
 	   <li>
-		<a href="../categories/categories.php" class="active">
+		<a href="../categories/Categories.php" class="active">
 		   <i class="bx bx-box"></i>
-		   <span class="links_name">Categories</span>
+		   <span class="links_name">Kategori Hewan</span>
 		</a>
 	   </li>
 	   <li>
-		<a href="../transaction/transaction.php">
+		<a href="../transaction/Penitipan.php">
 		   <i class="bx bx-list-ul"></i>
-		   <span class="links_name">Transaction</span>
+		   <span class="links_name">Transaksi Penitipan</span>
 		</a>
 	   </li>
 	   <li>
-		<a href="../logout.php">
+		<a href="../Logout.php">
 		   <i class="bx bx-log-out"></i>
 		   <span class="links_name">Log out</span>
 		</a>
@@ -71,15 +71,15 @@
 		<i class="bx bx-menu sidebarBtn"></i>
 	   </div>
 	   <div class="profile-details">
-		<span class="admin_name">Catshop Admin</span>
+		<span class="admin_name">Admin Penitipan</span>
 	   </div>
 	</nav>
 	<div class="home-content">
-	   <h3>Hapus Categories</h3>
+	   <h3>Hapus Kategori</h3>
          <div class="form-login">
             <h4>Ingin Menghapus Data ?</h4>
             <form
-              action="categories-proses.php"
+              action="../categories/categories-proses.php"
               method="post"
               enctype="multipart/form-data"
             >

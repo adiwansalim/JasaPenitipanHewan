@@ -22,7 +22,7 @@
     <div class="sidebar">
       <div class="logo-details">
         <i class=" "></i>
-        <span class="logo_name">Penitipan Hewan</span>
+        <span class="logo_name">PENITIPAN</span>
       </div>
       <ul class="nav-links">
         <li>
@@ -34,13 +34,13 @@
         <li>
           <a href="categories/Categories.php">
             <i class="bx bx-box"></i>
-            <span class="links_name">Categories</span>
+            <span class="links_name">Kategori Hewan</span>
           </a>
         </li>
         <li>
           <a href="transaction/Penitipan.php">
             <i class="bx bx-list-ul"></i>
-            <span class="links_name">Transaction</span>
+            <span class="links_name">Transaksi Penitipan</span>
           </a>
         </li>
         <li>

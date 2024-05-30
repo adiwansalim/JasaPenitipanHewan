@@ -12,21 +12,21 @@ if (isset($_POST['register'])) {
         echo "
             <script>
                 alert('Pastikan Anda Mengisi Semua Data');
-                window.location = 'register.php';
+                window.location = 'Register.php';
             </script>
         ";
     } elseif (mysqli_query($koneksi, $sql)) {
         echo "  
             <script>
                 alert('Registrasi Berhasil Silahkan login');
-                window.location = 'login.php';
+                window.location = 'Login.php';
             </script>
         ";
     } else {
         echo "
             <script>
                 alert('Terjadi Kesalahan');
-                window.location = 'register.php';
+                window.location = 'Register.php';
             </script>
         ";
     }
