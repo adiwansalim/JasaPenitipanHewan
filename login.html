@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <head>
+    <title>Login</title>
     <link rel="icon" href="assets/icon.png" />
-    <title>HOME</title>
-</head>
-<body>
-    <center>
-		<header>
-		   <nav>
-			<div class="logo">
-			  <img src="assets/logo.png" alt=""width="500" height="300" />
-			</div>
-			<a href="index.html">Home</a>
-			<a href="#">Categories</a>
-			<a href="login.html">Login</a>
-		   </nav>
-		</header>
-		<main>
-      	   <div class="form-login">
-		     <h3>Login</h3>
-		     <input type="text" name="username" placeholder="Username" /><br><br>
-		     <input type="password" name="password" placeholder="Password" /><br><br>
-		     <button type="submit">Login</button>
-             <a href="register.html">Register Disini</a>
-		    </div>
-		</main>
-		<footer>
-			<h4>Jasa Penitipan Hewan</h4>
-		</footer>
-	</center>
-</body>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <div class="logo">
+            <img src="assets/logo.png" alt="" width="200" height="100" />
+          </div>
+          <input type="checkbox" id="click" />
+          <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+          </label>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Categoriii.html">Categories</a></li>
+            <li><a href="login.html" class="btn_login">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="center">
+          <div class="form-login">
+            <h3>Login</h3>
+            <form action="">
+              <input
+                class="input"
+                type="text"
+                name="username"
+                placeholder="Username"
+              />
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+              <button type="submit" class="btn_login" name="login" id="login"> Login</button>
+            </form>
+            <p>Belum punya akun? <a href="register.html" class="link-register"> Register Disini</a></p>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <h4>Jasa Penitipan Hewan</h4>
+      </footer>
+    </div>
+  </body>
 </html>
